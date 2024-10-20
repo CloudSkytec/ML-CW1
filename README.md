@@ -3,7 +3,7 @@
 # COVER
 # 1：Juntian Xiao
 # 2：Luqi Xin
-# 3：
+# 3：Guangzheng Dong
 # 4：
 # 5：
 # INTRODUCTION
