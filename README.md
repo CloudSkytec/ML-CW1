@@ -2,7 +2,7 @@
 # A COURSEWORK OF ML-LAB01-WINE QUALITY-Report
 # COVER
 # 1：Juntian Xiao
-# 2：
+# 2：Luqi Xin
 # 3：
 # 4：
 # 5：
