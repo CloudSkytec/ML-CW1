@@ -158,7 +158,7 @@ scaler = StandardScaler()
 features_scaled = scaler.fit_transform(data_df)
 
 
-# Combine alcohol,density and residual_sugar
+# Combine free_sulfur_dioxide and total_sulfur_dioxide
 data_combined = data_df
 
 data_combined['free_sulfur_ratio'] = data_df['free_sulfur_dioxide'] / data_df['total_sulfur_dioxide']
