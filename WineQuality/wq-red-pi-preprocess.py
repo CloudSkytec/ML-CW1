@@ -9,8 +9,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats.mstats import winsorize
 from sklearn.model_selection import KFold, cross_val_score
-from sklearn import svm
-from sklearn import metrics
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.metrics import accuracy_score
 
 # read the CSV file
 df = pd.read_csv('winequality-red.csv', delimiter=';')
@@ -20,20 +21,25 @@ df.head()
 df.describe()
 df.info()
 
-# Create a new feature: Ratio of free sulfur dioxide to total sulfur dioxide
-df['sulfur_ratio'] = df['free sulfur dioxide'] / df['total sulfur dioxide']
-# Drop the original features if they're no longer needed
-df = df.drop(columns=['free sulfur dioxide', 'total sulfur dioxide'])
-
 # todo outliers treatment
 df['residual sugar_winsorized'] = winsorize(df['residual sugar'], limits=[0.01, 0.01])
-df = df.drop(columns=['residual sugar'])
+df['sulphates_winsorized'] = winsorize(df['sulphates'], limits=[0.01, 0.005])
+df['free sulfur dioxide_winsorized'] = winsorize(df['free sulfur dioxide'], limits=[0.02, 0.01])
+df['alcohol_winsorized'] = winsorize(df['alcohol'], limits=[0.01, 0.01])
+
+
+df = df.drop(columns=['residual sugar','sulphates','free sulfur dioxide','alcohol'])
 
 # Apply log transformation (add a small constant to avoid log(0))
-df['sulphates'] = np.log(df['sulphates'] + 1e-6)
-df['residual sugar_winsorized'] = np.log(df['residual sugar_winsorized'] + 1e-6)
+df['sulphates_winsorized'] = np.log(df['sulphates_winsorized'] + 1e-5)
+df['residual sugar_winsorized'] = np.log(df['residual sugar_winsorized'] + 1e-5)
+df['free sulfur dioxide_winsorized'] = np.log(df['free sulfur dioxide_winsorized'] + 1e-5)
 
 
+## combine
+df['density-sugar and alcohol ratio'] = (df['alcohol_winsorized'] + df['residual sugar_winsorized']) / df['density']
+df = df.drop(columns=['alcohol_winsorized','density','residual sugar_winsorized'])
+df['density-sugar and alcohol ratio'] = winsorize(df['density-sugar and alcohol ratio'], limits=[0,0.01])
 # Selecting features for scaling, excluding the target 'quality'
 features_to_scale = df.columns.drop('quality')
 
@@ -74,7 +80,7 @@ importance_df = importance_df.sort_values(by='Importance', ascending=False)
 print(importance_df)
 
 # Select the top N features (e.g., top 5)
-n = 8
+n = 7
 top_features = importance_df.head(n)['Feature']
 print(f"Top {n} Features: {list(top_features)}")
 
@@ -83,7 +89,7 @@ X_train_top = X_train[top_features]
 X_valid_top = X_valid[top_features]
 
 # Retrain the model using only the selected features
-model_top = RandomForestClassifier(n_estimators=200, random_state=42)
+model_top = RandomForestClassifier(min_samples_leaf=1, min_samples_split=5, n_estimators=200, random_state=42)
 model_top.fit(X_train_top, y_train)
 
 # Re-evaluate the model
