@@ -1,4 +1,4 @@
-# Wine Quality
+# The Dataset of Wine Quality
 from ucimlrepo import fetch_ucirepo 
   
 # fetch dataset 
@@ -16,18 +16,18 @@ print(wine_quality.variables)
 
 #------------------------------------------------------------------------------
 
-# Air Quality 
+# The Dataset of Abalone 
 from ucimlrepo import fetch_ucirepo 
   
 # fetch dataset 
-air_quality = fetch_ucirepo(id=360) 
+abalone = fetch_ucirepo(id=1) 
   
 # data (as pandas dataframes) 
-X = air_quality.data.features 
-y = air_quality.data.targets 
+X = abalone.data.features 
+y = abalone.data.targets 
   
 # metadata 
-print(air_quality.metadata) 
+print(abalone.metadata) 
   
 # variable information 
-print(air_quality.variables) 
+print(abalone.variables) 
