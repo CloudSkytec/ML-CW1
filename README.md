@@ -10,40 +10,52 @@
 - Yuhong Yuan
 - Qifeng He
 
-## 1. Introduction
+# 1. Introduction
 
-1. For **classification task** is [Wine Quality - UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/186/wine+quality)  which is related to red and white variants of the Portuguese "Vinho Verde" wine. It includes **4898 instances** and **11 features**.
-2. For **regression task** is [Air Quality - UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/360/air+quality) It contains the responses of a gas multisensor device deployed on the field in an Italian city. Hourly responses averages are recorded along with gas concentrations references from a certified analyzer. It includes **9358 instances** and **15 features**.
+- **Classification Dataset** : [Wine Quality - UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/186/wine+quality) 
+  - Two datasets are included, related to red and white vinho verde wine samples, from the north of Portugal. The goal is to model wine quality based on physicochemical tests (see [Cortez et al., 2009], http://www3.dsi.uminho.pt/pcortez/wine/).
 
-## 2. Method Description
+- **Regression Dataset**:  [Abalone - UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/1/abalone)
+  - Predict the age of abalone from physical measurements
 
-### 2.1 Analyzing Data
+# 2. Method Description
 
-#### 2.1.1  Wine Quality
+## 2.1 Analyzing Data
 
-todo: listing graphs or tables to describe the data, analyzing potential problems.
-
-
-
-#### 2.1.2 Air Quality
+### 2.1.1  Wine Quality
 
 
 
 
 
-### 2.2 Data Preprocessing
 
-#### 2.2.1 Wine Quality
+### 2.1.2 Abalone
+
+
+
+
+
+## 2.2 Data Preprocessing
+
+### 2.2.1 Wine Quality
 
 todo: given by above analyzations, listing preprocessing methods, e.g.(data normalization, feature selections)  
 
-#### 2.2.2 Air Quality
+### 2.2.2 Abalone
 
 
 
-## 3. Parameters settings
-
-## 4. Assessment
+# 3. Parameters settings
 
 
-## 5. Conclusion
+
+# 4. Assessment
+
+#### Logistic Regression Model 
+
+After performing proper data normalization and selecting optimal hyperparameters, we found that the performance remains difficult to compare with three other models.
+
+There are several reasons for this. Based on the principles of Logistic Regression, features should be linearly related to the target value. However, by analyzing the correlation of each feature with quality, it is evident that customers tend to choose specific ranges of parameters such as 'alcohol', 'residual sugar', 'total SO2', and so on. It turns out that the combination of specific range of wine parameters is crucial.
+
+
+# 5. Conclusion

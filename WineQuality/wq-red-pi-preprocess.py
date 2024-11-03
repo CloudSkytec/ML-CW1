@@ -3,15 +3,16 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.inspection import permutation_importance
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats.mstats import winsorize
 from sklearn.model_selection import KFold, cross_val_score
 from sklearn.model_selection import train_test_split
+from ucimlrepo import fetch_ucirepo 
+from imblearn.over_sampling import SMOTE
 
-# read the CSV file
-df = pd.read_csv('winequality-red.csv', delimiter=';')
+wine_quality = fetch_ucirepo(id=186) 
+df = pd.concat([wine_quality.data.features , wine_quality.data.targets], axis=1)
 
 # check dataset
 df.head()
@@ -19,46 +20,50 @@ df.describe()
 df.info()
 
 ## combine
-df = df.drop(columns=['density','free sulfur dioxide'])
+df = df.drop(columns=['density','free_sulfur_dioxide'])
 
 # todo outliers treatment
-df['alcohol'] = winsorize(df['alcohol'], limits=[0.005, 0.005])
-df['residual sugar'] = winsorize(df['residual sugar'], limits=[0.005, 0.005])
+df['alcohol'] = winsorize(df['alcohol'], limits=[0.001, 0.001])
+df['residual_sugar'] = winsorize(df['residual_sugar'], limits=[0.001, 0.001])
+df['sulphates'] = winsorize(df['sulphates'], limits=[0.001, 0.003])
+
+
 
 # Apply log transformation (add a small constant to avoid log(0))
 df['chlorides'] = np.log(df['chlorides'] + 1e-5)
 df['sulphates'] = np.log(df['sulphates'] + 1e-5)
-df['residual sugar'] = np.log(df['residual sugar'] + 1e-5)
-df['total sulfur dioxide'] = np.log(df['total sulfur dioxide'] + 1e-5)
+df['residual_sugar'] = np.log(df['residual_sugar'] + 1e-5)
+df['total_sulfur_dioxide'] = np.log(df['total_sulfur_dioxide'] + 1e-5)
 
 # remove less important features
-df = df.drop(columns=['citric acid'])
+df = df.drop(columns=['citric_acid'])
 
 # smote
-from imblearn.over_sampling import SMOTE #conda install conda-forge::tpot-imblearn
-oversample = SMOTE(k_neighbors=4)
+oversample = SMOTE(random_state=42,k_neighbors=4)
 # transform the dataset
-X_toresample = df.drop(columns=['quality'])
-y_toresample = df['quality']
-
-X_resampled, y_resampled = oversample.fit_resample(X_toresample, y_toresample)
-df_resampled = pd.concat([X_resampled, y_resampled], axis=1)
-X = df_resampled.drop(columns=['quality'])
-y = df_resampled['quality']
-
-# Selecting features for scaling, excluding the target 'quality'
-min_max_scaler = MinMaxScaler()
-features_to_scale = df_resampled.columns.drop('quality')
-df_resampled[features_to_scale] = min_max_scaler.fit_transform(df_resampled[features_to_scale])
-
+X, y = oversample.fit_resample(df.drop(columns=['quality']), df['quality'])
 ys = y.values.ravel()
+df_resampled = pd.concat([X,y], axis=1)
+
+# spilt
 X_train, X_test, y_train, y_test = train_test_split(X, ys, test_size=0.2, random_state=42)
 
+# random forest
+min_max_scaler = MinMaxScaler()
+X_train = min_max_scaler.fit_transform(X_train)
+X_test = min_max_scaler.fit_transform(X_test)
 model = RandomForestClassifier(min_samples_leaf=1, min_samples_split=5, n_estimators=200, random_state=42)
 model.fit(X_train, y_train)
 
+# logistic regression
+from sklearn.linear_model import LogisticRegression
+
+clf = LogisticRegression(C=1, solver='saga', max_iter=5000, penalty='l1').fit(X_train,y_train)
+print(clf.score(X_test,y_test))
+
+
 # KFold cross-validator
-kf = KFold(n_splits=8, shuffle=True, random_state=42)
+kf = KFold(n_splits=5, shuffle=True, random_state=42)
 scores = cross_val_score(model, X, y, cv=kf, scoring='accuracy')
 print("k-fold cross valuation:")
 print("Scores for each fold:", scores)
