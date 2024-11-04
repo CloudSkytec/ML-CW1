@@ -52,7 +52,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, ys, test_size=0.2, random
 min_max_scaler = MinMaxScaler()
 X_train = min_max_scaler.fit_transform(X_train)
 X_test = min_max_scaler.fit_transform(X_test)
-model = RandomForestClassifier(min_samples_leaf=1, min_samples_split=5, n_estimators=200, random_state=42)
+model = RandomForestClassifier(min_samples_split=5, n_estimators=200, random_state=42)
 model.fit(X_train, y_train)
 
 # logistic regression

@@ -26,9 +26,6 @@
 
 
 
-
-
-
 ### 2.1.2 Abalone
 
 
@@ -39,13 +36,29 @@
 
 ### 2.2.1 Wine Quality
 
-todo: given by above analyzations, listing preprocessing methods, e.g.(data normalization, feature selections)  
+#### Scaling
+
+Given that features like `fixed acidity`, `volatile acidity`, `residual sugar`, and `alcohol` have different ranges, standard scaling can help normalize these variations.
+
+#### Outliers
+
+By analyzing the graph of scaled features, we applied the `winsorize()` function to trim some extreme values, making the scaled data balanced.
+
+
 
 ### 2.2.2 Abalone
 
 
 
 # 3. Parameters settings
+## 3.1 Wine Quality
+#### 3.1.1 Random Forest Classifier
+**parameters**:  **min_samples_split**=5, **n_estimators**=200, **random_state**=42
+
+- **min_sample_split:** By increasing this parameter, we have reduced the total number of splits, thereby limiting the number of parameters in the model and reducing overfitting.
+
+  **n_estimators:** Given the limited size of our dataset, increasing this parameter could result in a more generalized model.
+
 
 
 
