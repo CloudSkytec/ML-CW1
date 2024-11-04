@@ -30,7 +30,7 @@
 - **Evaluate && Compare**
   - ***K-fold cross-validation***:
   - ***Mean squared error (MSE) for Regression***:
-  - 
+
 ## 2.1 Analyzing Data
 
 ### 2.1.1  Wine Quality
