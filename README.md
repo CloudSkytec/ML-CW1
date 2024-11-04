@@ -14,27 +14,41 @@
 
 - **Classification Dataset** : [Wine Quality - UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/186/wine+quality) 
   - Two datasets are included, related to red and white vinho verde wine samples, from the north of Portugal. The goal is to model wine quality based on physicochemical tests (see [Cortez et al., 2009], http://www3.dsi.uminho.pt/pcortez/wine/).
+  - The data description suggests that an anomaly detection algorithm can be used to identify a small number of good or bad wines. Also, it is not possible to determine whether all input variables are related. Therefore, special attention needs to be paid to the   processing of data.
 
 - **Regression Dataset**:  [Abalone - UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/1/abalone)
   - Predict the age of abalone from physical measurements
+  - The data description has indicated that the default values have been removed and the data scaling is reasonable. Therefore, it is more convenient in the display and use of data, and it is easy to apply the verification of the model.
 
 # 2. Method Description
+- **Model**
+  - ***Linear regression***:
+  - ***Logistic regression***:
+  - ***Support vector machines (SVM)***:
+  - ***Decision trees***:
+  - ***Multilayer perceptron neural network***:
+  
+- **Evaluate && Compare**
+  - ***K-fold cross-validation***:
+  - ***Mean squared error (MSE) for Regression***:
+  
+  
 
 ## 2.1 Analyzing Data
 
-### 2.1.1  Wine Quality
+### Wine Quality
 
 
 
-### 2.1.2 Abalone
-
+### Abalone
 
 
 
 
 ## 2.2 Data Preprocessing
 
-### 2.2.1 Wine Quality
+#### 2.2.1 Wine Quality
+
 
 #### Scaling
 
