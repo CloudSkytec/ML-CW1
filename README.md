@@ -31,28 +31,28 @@
   - ***K-fold cross-validation***:
   - ***Mean squared error (MSE) for Regression***:
 
-## 2.1 Analyzing Data
+  ## 2.1 Analyzing Data
 
-### 2.1.1  Wine Quality
-
-
-
-
-
-
-### 2.1.2 Abalone
+    ### 2.1.1  Wine Quality
 
 
 
 
 
-## 2.2 Data Preprocessing
 
-### 2.2.1 Wine Quality
+    ### 2.1.2 Abalone
 
-todo: given by above analyzations, listing preprocessing methods, e.g.(data normalization, feature selections)  
 
-### 2.2.2 Abalone
+
+
+
+  ## 2.2 Data Preprocessing
+
+    ### 2.2.1 Wine Quality
+
+    todo: given by above analyzations, listing preprocessing methods, e.g.(data normalization, feature selections)  
+
+    ### 2.2.2 Abalone
 
 
 
