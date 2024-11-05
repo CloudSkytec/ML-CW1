@@ -92,7 +92,7 @@ By analyzing the graph of scaled features, we applied the `winsorize()` function
 
 ### 3.1.1 Random Forest Classifier           ( **Change to Decision trees !!!**)
 
-- **parameters**:  **min_samples_split**=5, **n_estimators**=200, **random_state**=42
+**parameters**:  **min_samples_split**=5, **n_estimators**=200, **random_state**=42
 
 - **min_sample_split:** By increasing this parameter, we have reduced the total number of splits, thereby limiting the number of parameters in the model and reducing overfitting.
 
@@ -101,6 +101,10 @@ By analyzing the graph of scaled features, we applied the `winsorize()` function
 ### 3.1.2 Logistic regression
 
 ### 3.1.3 Support vector machines (SVM)
+
+**parameters**: kernel='rbf', gamma='scale', degree=3, C=10, random_state=0
+
+- **C**: By increasing C from 1 to 10, we improved model’s accuracy, which indicates that the SVM model is less tolerant of misclassifications and is better able to fit the training data closely. 
 
 ### 3.1.4 Multilayer perceptron neural network
 
@@ -115,6 +119,10 @@ By analyzing the graph of scaled features, we applied the `winsorize()` function
 ### 3.2.2 Linear regression
 
 ### 3.2.3 Support vector machines (SVM)
+
+**parameters**: kernel='rbf', gamma='scale', C=100, epsilon=0.5
+
+- **epsilon**: By increasing epsilon value, we increased tolerance for error, making the model more robust and reducing the risk of overfitting to small errors.
 
 ### 3.2.4 Multilayer perceptron neural network
 
