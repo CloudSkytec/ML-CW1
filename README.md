@@ -49,7 +49,7 @@ There are 11 features and 1 target value in this dataset, including: - `Fixed Ac
 
 ### Abalone
 
-There are 8 features and 1 target value in this dataset, including `'Sex', 'Length', 'Diameter', 'Height', 'Whole_weight', 'Shucked_weight', 		'Viscera_weight', 'Shell_weight',` and target value `'Rings'`
+There are 8 features and 1 target value in this dataset, including `'Sex', 'Length', 'Diameter', 'Height', 'Whole_weight', 'Shucked_weight', 'Viscera_weight', 'Shell_weight',` and target value `'Rings'`
 
 - Looking at graph it is evident that Length and Diameter are highly correlated.
 
