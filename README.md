@@ -42,6 +42,13 @@ There is n
 
 ### Abalone
 
+There are 8 features and 1 target value in this dataset, including `'Sex', 'Length', 'Diameter', 'Height', 'Whole_weight', 'Shucked_weight', 'Viscera_weight', 'Shell_weight',` and target value `'Rings'`
+
+- Looking at graph it is evident that Length and Diameter are highly correlated, 
+
+- when summing up `'Shucked_weight', 'Viscera_weight', 'Shell_weight'`  it is quite close to `Whole_weight`
+- Some obvious outliers exist like 0 value and huge value in `Height` 
+
 
 
 
@@ -62,7 +69,13 @@ By analyzing the graph of scaled features, we applied the `winsorize()` function
 
 ### 2.2.2 Abalone
 
+- Looking at graph we found that `'Length'` and `'Diameter'` are highly correlated, since decided to remove 'Length'. 
 
+<img src="README.assets/image-20241105201950539.png" alt="image-20241105201950539" style="zoom:80%;" />
+
+- Feature `'Sex'` is a string type, in order to fit it into regression model, it should be applied One-Hot-Encoding.
+- We applied IQR Method to other features that also have outliers.
+- Then using min-max-scaler to scale this dataset. We eventually obtained a relatively balanced dataset.![image-20241105202523507](README.assets/image-20241105202523507.png)
 
 # 3. Parameters settings
 ## 3.1 Wine Quality
