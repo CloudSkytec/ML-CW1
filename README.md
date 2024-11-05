@@ -64,18 +64,37 @@ There are 8 features and 1 target value in this dataset, including `'Sex', 'Leng
 
 ### Wine Quality
 
+#### Outliers
+
+By analyzing the box plot, we applied IQR method to define bounds. For certain features or extreme values in both the feature and quality, we define such samples as meaningful and choose to retain them based on the actual situation. For example, very low `citric  acid` may indicate low-acid white wines or sweet wines, while high `residual sugar` could indicate sweet wines like Sauternes.
+
+![](D:\AllSoftwares\Python\projects\MLE CW\README.assets\Classification-boxplot.png)
+
+####  Feature Engineering
+
+According to the heatmap of correlation, we picked high-correlated features `free sulfur dioxide` and `total_sulfur_dioxide` and combined them into `free_sulfur_ratio` to minimize the correlation.
+
+( 放没有结合过特征的热力图 )!!!
 
 #### Scaling
 
-Given that features like `fixed acidity`, `volatile acidity`, `residual sugar`, and `alcohol` have different ranges, standard scaling can help normalize these variations.
+Given that features like `fixed acidity`, `volatile acidity`, `residual sugar`, and `alcohol` have different ranges, we apply Standard Normalization to prevent features with varying scales from dominating the model.
 
-#### Outliers
+#### Oversampling
 
-By analyzing the graph of scaled features, we applied the `winsorize()` function to trim some extreme values, making the scaled data balanced.
+The count plot shows that the target variable `quality` is imbalanced, so SMOTE is applied to increase the samples for classes 3 and 9.
+
+![](D:\AllSoftwares\Python\projects\MLE CW\README.assets\Classification-qulity_countplot.png)
+
+
 
 
 
 ### Abalone
+
+- Based on pairwise scatter plots of each feature, we can initially observe the correlations between features.
+
+  ![](D:\AllSoftwares\Python\projects\MLE CW\README.assets\Regression-pair_plot.png)
 
 - Looking at graph we found that `'Length'` and `'Diameter'` are highly correlated, since decided to remove 'Length'. 
 
