@@ -68,7 +68,7 @@ There are 8 features and 1 target value in this dataset, including `'Sex', 'Leng
 
 By analyzing the box plot, we applied IQR method to define bounds. For certain features or extreme values in both the feature and quality, we define such samples as meaningful and choose to retain them based on the actual situation. For example, very low `citric  acid` may indicate low-acid white wines or sweet wines, while high `residual sugar` could indicate sweet wines like Sauternes.
 
-![](D:\AllSoftwares\Python\projects\MLE CW\README.assets\Classification-boxplot.png)
+![](README.assets\Classification-boxplot.png)
 
 ####  Feature Engineering
 
@@ -84,7 +84,7 @@ Given that features like `fixed acidity`, `volatile acidity`, `residual sugar`, 
 
 The count plot shows that the target variable `quality` is imbalanced, so SMOTE is applied to increase the samples for classes 3 and 9.
 
-![](D:\AllSoftwares\Python\projects\MLE CW\README.assets\Classification-qulity_countplot.png)
+![](README.assets\Classification-qulity_countplot.png)
 
 
 
@@ -94,7 +94,7 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 - Based on pairwise scatter plots of each feature, we can initially observe the correlations between features.
 
-  ![](D:\AllSoftwares\Python\projects\MLE CW\README.assets\Regression-pair_plot.png)
+  ![](\README.assets\Regression-pair_plot.png)
 
 - Looking at graph we found that `'Length'` and `'Diameter'` are highly correlated, since decided to remove 'Length'. 
 
