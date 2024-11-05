@@ -38,7 +38,7 @@
 
 ### Wine Quality
 
-
+There is n
 
 ### Abalone
 
@@ -47,7 +47,7 @@
 
 ## 2.2 Data Preprocessing
 
-#### 2.2.1 Wine Quality
+### 2.2.1 Wine Quality
 
 
 #### Scaling
