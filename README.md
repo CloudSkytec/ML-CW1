@@ -22,15 +22,17 @@
 
 # 2. Method Description
 - **Model**
-  - ***Linear regression***:
-  - ***Logistic regression***:
-  - ***Support vector machines (SVM)***:
-  - ***Decision trees***:
-  - ***Multilayer perceptron neural network***:
   
-- **Evaluate && Compare**
-  - ***K-fold cross-validation***:
-  - ***Mean squared error (MSE) for Regression***:
+  - ***Linear regression***
+  - ***Logistic regression***
+  - ***Support vector machines (SVM)***
+  - ***Decision trees***
+  - ***Multilayer perceptron neural network***
+  
+- **Evaluate**
+  
+  - ***K-fold cross-validation***
+  - ***Mean squared error (MSE) for Regression***
   
   
 
@@ -38,23 +40,29 @@
 
 ### Wine Quality
 
-There is n
+There are 11 features and 1 target value in this dataset, including: - `Fixed Acidity` - `Volatile Acidity` - `Citric Acid` - `Residual Sugar` - `Chlorides` - `Free Sulfur Dioxide` - `Total Sulfur Dioxide` - `Density` - `pH` - `Sulphates` - `Alcohol` The target value is: - `Quality` .
+
+- Looking at the correlation matrix, it is evident that `Fixed Acidity` and `pH` are inversely correlated, as expected due to the relationship between acidity and pH levels. 
+
+- When summing up `Free Sulfur Dioxide` and `Bound Sulfur Dioxide` (derived from `Total Sulfur Dioxide` minus `Free Sulfur Dioxide`), it corresponds closely to `Total Sulfur Dioxide`. 
+- Some obvious outliers exist, such as extremely high values in `Residual Sugar` and `Chlorides`, which might indicate wines with significantly different processing or contamination.
 
 ### Abalone
 
 There are 8 features and 1 target value in this dataset, including `'Sex', 'Length', 'Diameter', 'Height', 'Whole_weight', 'Shucked_weight', 'Viscera_weight', 'Shell_weight',` and target value `'Rings'`
 
-- Looking at graph it is evident that Length and Diameter are highly correlated, 
+- Looking at graph it is evident that Length and Diameter are highly correlated.
 
-- when summing up `'Shucked_weight', 'Viscera_weight', 'Shell_weight'`  it is quite close to `Whole_weight`
-- Some obvious outliers exist like 0 value and huge value in `Height` 
+- when summing up `'Shucked_weight', 'Viscera_weight', 'Shell_weight'`  it is quite close to `Whole_weight`.
+
+- Some obvious outliers exist like 0 value and huge value in `Height` .
 
 
 
 
 ## 2.2 Data Preprocessing
 
-### 2.2.1 Wine Quality
+### Wine Quality
 
 
 #### Scaling
@@ -67,7 +75,7 @@ By analyzing the graph of scaled features, we applied the `winsorize()` function
 
 
 
-### 2.2.2 Abalone
+### Abalone
 
 - Looking at graph we found that `'Length'` and `'Diameter'` are highly correlated, since decided to remove 'Length'. 
 
@@ -79,23 +87,61 @@ By analyzing the graph of scaled features, we applied the `winsorize()` function
 
 # 3. Parameters settings
 ## 3.1 Wine Quality
-#### 3.1.1 Random Forest Classifier
-**parameters**:  **min_samples_split**=5, **n_estimators**=200, **random_state**=42
+
+
+
+### 3.1.1 Random Forest Classifier           ( **Change to Decision trees !!!**)
+
+- **parameters**:  **min_samples_split**=5, **n_estimators**=200, **random_state**=42
 
 - **min_sample_split:** By increasing this parameter, we have reduced the total number of splits, thereby limiting the number of parameters in the model and reducing overfitting.
 
-  **n_estimators:** Given the limited size of our dataset, increasing this parameter could result in a more generalized model.
+- **n_estimators:** Given the limited size of our dataset, increasing this parameter could result in a more generalized model.
+
+### 3.1.2 Logistic regression
+
+### 3.1.3 Support vector machines (SVM)
+
+### 3.1.4 Multilayer perceptron neural network
 
 
+
+## 3.2 Abalone
+
+
+
+### 3.2.1 Decision trees 
+
+### 3.2.2 Linear regression
+
+### 3.2.3 Support vector machines (SVM)
+
+### 3.2.4 Multilayer perceptron neural network
 
 
 # 4. Assessment
 
-#### Logistic Regression Model 
+#### **Logistic Regression Model**
 
 After performing proper data normalization and selecting optimal hyperparameters, we found that the performance remains difficult to compare with three other models.
 
 There are several reasons for this. Based on the principles of Logistic Regression, features should be linearly related to the target value. However, by analyzing the correlation of each feature with quality, it is evident that customers tend to choose specific ranges of parameters such as 'alcohol', 'residual sugar', 'total SO2', and so on. It turns out that the combination of specific range of wine parameters is crucial.
+
+**Linear regression**
+
+
+
+**Decision trees** 
+
+
+
+**Support vector machines (SVM)**
+
+
+
+**Multilayer perceptron neural network**
+
+
 
 
 # 5. Conclusion
