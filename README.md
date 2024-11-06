@@ -162,6 +162,19 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 # 4. Assessment
 
+## Wine Quality
+
+
+
+
+
+## Abalone
+
+![](D:\PythonProject\CWlab\assets\Model Performance Comparison-1730927213234-4.png)
+
+
+# 5. Conclusion
+
 #### **Logistic Regression Model**
 
 After performing proper data normalization and selecting optimal hyperparameters, we found that the performance remains difficult to compare with three other models.
@@ -181,8 +194,3 @@ There are several reasons for this. Based on the principles of Logistic Regressi
 
 
 **Multilayer perceptron neural network**
-
-
-
-
-# 5. Conclusion
