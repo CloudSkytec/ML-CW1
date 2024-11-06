@@ -168,8 +168,7 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 ## Wine Quality
 
-
-
+<img src="README.assets/Model Performance Comparison - Classification.png" alt="image-20241105222200906" style="zoom:100%;" />
 
 
 ## Abalone
