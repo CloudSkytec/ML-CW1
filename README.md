@@ -176,22 +176,11 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 # 5. Conclusion
 
-#### **Logistic Regression Model**
+**Different types of datasets have corresponding models that are suitable for them**
 
-After performing proper data normalization and selecting optimal hyperparameters, we found that the performance remains difficult to compare with three other models.
+The features of the dataset ***Abalone*** shows a clear linear relationship with the target values. While the features of ***Wine Quality*** did not show a clear linear relationship to its target value, by analyzing the correlation of each feature with quality, it is evident that customers tend to choose specific ranges of parameters such as 'alcohol', 'residual sugar', 'total SO2', and so on. It turns out that the combination of specific range of wine parameters is crucial. Therefore, the performance of **logistic classifier model** on this dataset is unsatisfactory.
 
-There are several reasons for this. Based on the principles of Logistic Regression, features should be linearly related to the target value. However, by analyzing the correlation of each feature with quality, it is evident that customers tend to choose specific ranges of parameters such as 'alcohol', 'residual sugar', 'total SO2', and so on. It turns out that the combination of specific range of wine parameters is crucial.
+**Data preprocessing matters**
 
-**Linear regression**
+Outliers can significantly affect models, especially some models could be really sensitive to outliers. Appropriate preprocessing can make the distribution of each feature in the model more balanced, thereby making the model easier to converge. What's more, during the experiment, we found that different data processing methods should be applied to different models to achieve the best fit.
 
-
-
-**Decision trees** 
-
-
-
-**Support vector machines (SVM)**
-
-
-
-**Multilayer perceptron neural network**
