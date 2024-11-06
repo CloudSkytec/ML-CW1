@@ -1,8 +1,4 @@
----
-typora-root-url: ./
----
-
-# ML-CW1 
+# Machine Learning - Coursework - Assignment 01
 
 **Group Number:** C4_18
 
