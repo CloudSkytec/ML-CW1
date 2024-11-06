@@ -152,7 +152,7 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 - **epsilon**: By increasing epsilon value, we increased tolerance for error, making the model more robust and reducing the risk of overfitting to small errors.
 
 ### 3.2.4 Multilayer perceptron neural network
-**parameters**:  **hidden_layer_sizes=(64, 32, 16, 8)**, **epoch=500**, **learning_rate=0.0015,  **batch_size=80
+**parameters**:  **hidden_layer_sizes=(64, 32, 16, 8)**, **epoch=500**, **learning_rate=0.0015**,  **batch_size=80**
 
 - **Hidden Layer Size**: Starting with 64 neurons captures broad features, and decreasing the number in deeper layers helps refine them to balance model capacity
   and reducing the risk of overfitting.
