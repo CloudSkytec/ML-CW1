@@ -109,7 +109,7 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 
 
-### 3.1.1 Random Forest Classifier           ( **Change to Decision trees !!!**)
+### 3.1.1 Decision Trees Classifier
 
 **parameters**:  **min_samples_split**=5, **n_estimators**=200, **random_state**=42
 
@@ -170,7 +170,7 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 ## Abalone
 
-![](D:\PythonProject\CWlab\assets\Model Performance Comparison-1730927213234-4.png)
+<img src="README.assets/Model Performance Comparison - Regression.png" alt="image-20241105222200906" style="zoom:100%;" />
 
 
 # 5. Conclusion
