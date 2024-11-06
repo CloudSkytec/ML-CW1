@@ -1,3 +1,7 @@
+---
+typora-root-url: ./
+---
+
 # ML-CW1 
 
 **Group Number:** C4_18
@@ -74,7 +78,7 @@ By analyzing the box plot, we applied IQR method to define bounds. For certain f
 
 According to the heatmap of correlation, we picked high-correlated features `free sulfur dioxide` and `total_sulfur_dioxide` and combined them into `free_sulfur_ratio` to minimize the correlation.
 
-( 放没有结合过特征的热力图 )!!!
+<img src="README.assets/Classification-quality_importance.png" alt="Classification-boxplot" style="zoom:100%;" />
 
 #### Scaling
 
