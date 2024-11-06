@@ -13,26 +13,23 @@
 # 1. Introduction
 
 - **Classification Dataset** : [Wine Quality - UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/186/wine+quality) 
-  - Two datasets are included, related to red and white vinho verde wine samples, from the north of Portugal. The goal is to model wine quality based on physicochemical tests (see [Cortez et al., 2009], http://www3.dsi.uminho.pt/pcortez/wine/).
-  - The data description suggests that an anomaly detection algorithm can be used to identify a small number of good or bad wines. Also, it is not possible to determine whether all input variables are related. Therefore, special attention needs to be paid to the   processing of data.
-
+  - Two datasets are included, related to red and white vinho verde wine samples, from the north of Portugal. The goal is to model wine quality based on physicochemical tests.
 - **Regression Dataset**:  [Abalone - UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/1/abalone)
   - Predict the age of abalone from physical measurements
-  - The data description has indicated that the default values have been removed and the data scaling is reasonable. Therefore, it is more convenient in the display and use of data, and it is easy to apply the verification of the model.
 
 # 2. Method Description
-- **Model**
+- **Models**
   
-  - ***Linear regression***
-  - ***Logistic regression***
-  - ***Support vector machines (SVM)***
-  - ***Decision trees***
-  - ***Multilayer perceptron neural network***
+  - *Linear regression*
+  - *Logistic regression*
+  - *Support vector machines (SVM)*
+  - *Decision trees*
+  - *Multilayer perceptron neural network*
   
-- **Evaluate**
+- **Evaluate Methods** 
   
-  - ***K-fold cross-validation***
-  - ***Mean squared error (MSE) for Regression***
+  - *K-fold cross-validation*
+  - *Mean squared error (MSE) for Regression*
   
   
 
@@ -66,7 +63,7 @@ There are 8 features and 1 target value in this dataset, including `'Sex', 'Leng
 
 #### Outliers
 
-By analyzing the box plot, we applied IQR method to define bounds. For certain features or extreme values in both the feature and quality, we define such samples as meaningful and choose to retain them based on the actual situation. For example, very low `citric  acid` may indicate low-acid white wines or sweet wines, while high `residual sugar` could indicate sweet wines like Sauternes.
+We applied IQR method to define bounds. For certain features or extreme values in both the feature and quality, we define such samples as meaningful and choose to retain them based on the actual situation. For example, very low `citric acid` may indicate low-acid white wines or sweet wines, while high `residual sugar` could indicate sweet wines like Sauternes.
 
 <img src="README.assets/Classification-boxplot.png" alt="Classification-boxplot" style="zoom:67%;" />
 
@@ -111,7 +108,7 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 **parameters**:  **min_samples_split**=3, **random_state**=42
 
-- **min_sample_split:** By increasing this parameter, we have reduced the total number of splits, thereby limiting the number of parameters in the model and reducing overfitting. This parameter was chosen by grid search cv.
+- **min_sample_split:** By increasing it, we've reduced the total number of splits, thereby limiting the number of parameters in the model and reducing overfitting.
 
 ### 3.1.2 Logistic regression
 
@@ -181,9 +178,9 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 **Different types of datasets have corresponding models that are suitable for them**
 
-The features of the dataset ***Abalone*** shows a clear linear relationship with the target values. While the features of ***Wine Quality*** did not show a clear linear relationship to its target value, by analyzing the correlation of each feature with quality, it is evident that customers tend to choose specific ranges of parameters such as 'alcohol', 'residual sugar', 'total SO2', and so on. It turns out that the combination of specific range of wine parameters is crucial. Therefore, the performance of **logistic classifier model** on this dataset is unsatisfactory.
+The features of dataset ***Abalone*** shows a clear linear relationship with the target values. While the features of ***Wine Quality*** did not show a clear linear relationship, by analyzing the correlation of each feature with quality, it is evident that customers tend to choose specific ranges of parameters such as 'alcohol', 'residual sugar', 'total SO2', and so on. It turns out that the combination of specific range of parameters is crucial. Therefore, the performance of **logistic classifier model** on this dataset is unsatisfactory.
 
 **Data preprocessing matters**
 
-Outliers can significantly affect models, especially some models could be really sensitive to outliers. Appropriate preprocessing can make the distribution of each feature in the model more balanced, thereby making the model easier to converge. What's more, during the experiment, we found that different data processing methods should be applied to different models to achieve the best fit.
+Outliers can significantly affect models, especially some models could be sensitive to them. Appropriate preprocessing can make the distribution of feature more balanced, thereby making the model easier to converge. What's more, different data processing methods should be applied to different models to achieve the best fit.
 
