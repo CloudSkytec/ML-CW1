@@ -107,21 +107,22 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 # 3. Parameters settings
 ## 3.1 Wine Quality
 
-
-
 ### 3.1.1 Decision Trees Classifier
 
-**parameters**:  **min_samples_split**=5, **n_estimators**=200, **random_state**=42
+**parameters**:  **min_samples_split**=3, **random_state**=42
 
-- **min_sample_split:** By increasing this parameter, we have reduced the total number of splits, thereby limiting the number of parameters in the model and reducing overfitting.
-
-- **n_estimators:** Given the limited size of our dataset, increasing this parameter could result in a more generalized model.
+- **min_sample_split:** By increasing this parameter, we have reduced the total number of splits, thereby limiting the number of parameters in the model and reducing overfitting. This parameter was chosen by grid search cv.
 
 ### 3.1.2 Logistic regression
 
+**parameters:** C=1, solver='saga', max_iter=500, penalty='l1'
+
+- **solver**: For multiclass problems ‘saga’ and ‘lbfgs’ can handle multinomial loss; By testing, we eventually chose 'saga'.
+- **max_iter**: the model can not converge when using default value '100'. By increasing it the model successfully converged.
+
 ### 3.1.3 Support vector machines (SVM)
 
-**parameters**: kernel='rbf', gamma='scale', degree=3, C=10, random_state=0
+**parameters**: **kernel**='rbf', **gamma**='scale', **degree**=3, C=10, **random_state**=0
 
 - **C**: By increasing C from 1 to 10, we improved model’s accuracy, which indicates that the SVM model is less tolerant of misclassifications and is better able to fit the training data closely. 
 
@@ -134,9 +135,9 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 ## 3.2 Abalone
 
+### 3.2.1 Decision trees
 
 
-### 3.2.1 Decision trees 
 
 ### 3.2.2 Linear regression
 

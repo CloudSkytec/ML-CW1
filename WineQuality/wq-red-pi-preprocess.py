@@ -54,13 +54,13 @@ X_train, X_test, y_train, y_test = train_test_split(X, ys, test_size=0.2, random
 min_max_scaler = MinMaxScaler()
 X_train = min_max_scaler.fit_transform(X_train)
 X_test = min_max_scaler.fit_transform(X_test)
-model = DecisionTreeClassifier(min_samples_split=5, random_state=42)
+model = DecisionTreeClassifier(min_samples_split=3, random_state=42)
 model.fit(X_train, y_train)
 
 # logistic regression
 from sklearn.linear_model import LogisticRegression
 
-clf = LogisticRegression(C=1, solver='saga', max_iter=5000, penalty='l1').fit(X_train,y_train)
+clf = LogisticRegression(C=1, solver='saga', max_iter=500, penalty='l1').fit(X_train,y_train)
 print(clf.score(X_test,y_test))
 
 
