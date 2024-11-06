@@ -95,12 +95,11 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 - Based on pairwise scatter plots of each feature, we can initially observe the correlations between features.
 
   <img src="README.assets\Regression-pair_plot.png" alt="Regression-pair_plot" style="zoom:67%;" />
-
+- Feature `'Sex'` is a string type, in order to fit it into regression model, it should be applied One-Hot-Encoding.
 - Looking at graph we found that `'Length'` and `'Diameter'` are highly correlated, since decided to remove 'Length'. 
 
   <img src="README.assets/image-20241105222200906.png" alt="image-20241105222200906" style="zoom:67%;" />
 
-- Feature `'Sex'` is a string type, in order to fit it into regression model, it should be applied One-Hot-Encoding.
 - We applied IQR Method to other features that also have outliers.
 - Then using min-max-scaler to scale this dataset. We eventually obtained a relatively balanced dataset.![image-20241105202523507](README.assets/image-20241105202523507.png)
 
