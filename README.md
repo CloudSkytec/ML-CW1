@@ -115,7 +115,7 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 ### 3.1.2 Logistic regression
 
-**parameters:** C=1, solver='saga', max_iter=500, penalty='l1'
+**parameters:** **C**=1, **solver**='saga', **max_iter**=500, **penalty**='l1'
 
 - **solver**: For multiclass problems ‘saga’ and ‘lbfgs’ can handle multinomial loss; By testing, we eventually chose 'saga'.
 - **max_iter**: the model can not converge when using default value '100'. By increasing it the model successfully converged.
@@ -128,31 +128,34 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 ### 3.1.4 Multilayer perceptron neural network
 
-**parameters**:  **hidden_layer_sizes=(100,64,32)**,**max_iter=300**, **alpha=0.1**,**learning_rate=0.005**
+**parameters**:  **hidden_layer_sizes**=(100,64,32), **max_iter**=300, **alpha**=0.1, **learning_rate**=0.005
 
 - **Hidden Layer Size**: Add two hidden layers with decreasing numbers to improve accuracy and reducing the risk of overfitting.
 - **alpha**: Alpha was initially set to 0.01, but due to persistent overfitting, it was increased to 0.1, which successfully reduced the variance to 4.7%
 
 ## 3.2 Abalone
 
-### 3.2.1 Decision trees
+### 3.2.1 Decision trees regression
 
+**parameters**:  **max_depth**=5, **criterion**='squared_error'
 
+- **max_depth**：The maximum depth of the tree. Increasing this value may lead to overfitting, and smaller values may lead to underfitting by adjusting the maximum depth of the tree from 3-8 to determine 5 as the optimal parameter.
+- **criterion**: Default option to minimize mean squared error
 
 ### 3.2.2 Linear regression
 
-**parameters**: fit_intercept=True
+**parameters**: **fit_intercept**=True
 
 - **fit_intercept**: Since the data is not centralized, setting `fit_intercept=True` allows for a better fit to the data, reducing model bias.
 
 ### 3.2.3 Support vector machines (SVM)
 
-**parameters**: kernel='rbf', gamma='scale', C=100, epsilon=0.5
+**parameters**: **kernel**='rbf', **gamma**='scale', **C**=100, **epsilon**=0.5
 
 - **epsilon**: By increasing epsilon value, we increased tolerance for error, making the model more robust and reducing the risk of overfitting to small errors.
 
 ### 3.2.4 Multilayer perceptron neural network
-**parameters**:  **hidden_layer_sizes=(64, 32, 16, 8)**, **epoch=500**, **learning_rate=0.0015**,  **batch_size=80**
+**parameters**:  **hidden_layer_sizes**=(64, 32, 16, 8), **epoch**=500, **learning_rate**=0.0015,  **batch_size**=80
 
 - **Hidden Layer Size**: Starting with 64 neurons captures broad features, and decreasing the number in deeper layers helps refine them to balance model capacity
   and reducing the risk of overfitting.
