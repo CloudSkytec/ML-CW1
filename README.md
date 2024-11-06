@@ -140,6 +140,10 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 ### 3.2.2 Linear regression
 
+**parameters**: fit_intercept=True
+
+- **fit_intercept**: Since the data is not centralized, setting `fit_intercept=True` allows for a better fit to the data, reducing model bias.
+
 ### 3.2.3 Support vector machines (SVM)
 
 **parameters**: kernel='rbf', gamma='scale', C=100, epsilon=0.5
