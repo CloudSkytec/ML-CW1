@@ -171,7 +171,7 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 ## Abalone
 
-![image-20241107125130051](D:\PythonProject\CWlab\README.assets\image-20241107125130051.png)
+<img src="README.assets/image-20241107125130051.png" alt="image-20241105222200906" style="zoom:100%;" />
 
 
 
