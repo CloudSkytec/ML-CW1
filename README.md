@@ -12,6 +12,8 @@
 - **Yuhong Yuan**
 - **Qifeng He**
 
+<div STLE="page-break-after: always;"></div>
+
 # 1. Introduction
 
 
@@ -168,7 +170,7 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 - **Batch Size**: A batch size of 80 can provide a stable estimate of the gradient and avoid overfitting.
 - **Max Iterations**: After adjusting the epoch several times, we settled on 500 epochs which can not only effectively reduce the model's MSE but also maintain stability without significant fluctuations. 
 
-
+<div STLE="page-break-after: always;"></div>
 
 
 # 4. Assessment
