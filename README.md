@@ -2,15 +2,19 @@
 
 **Group Number:** C4_18
 
+**Github Link:** https://github.com/CloudSkytec/ML-CW1/tree/main
+
 **Group Members:** 
 
-- Juntian Xiao
-- Luqi Xin
-- Guangzheng Dong
-- Yuhong Yuan
-- Qifeng He
+- **Juntian Xiao**
+- **Luqi Xin**
+- **Guangzheng Dong**
+- **Yuhong Yuan**
+- **Qifeng He**
 
 # 1. Introduction
+
+
 
 - **Classification Dataset** : [Wine Quality - UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/186/wine+quality) 
   - Two datasets are included, related to red and white vinho verde wine samples, from the north of Portugal. The goal is to model wine quality based on physicochemical tests.
@@ -101,6 +105,9 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 - Then using min-max-scaler to scale this dataset. We eventually obtained a relatively balanced dataset.![image-20241105202523507](README.assets/image-20241105202523507.png)
 
 # 3. Parameters settings
+
+
+
 ## 3.1 Wine Quality
 
 ### 3.1.1 Decision Trees Classifier
@@ -128,6 +135,8 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 
 - **Hidden Layer Size**: Add two hidden layers with decreasing numbers to improve accuracy and reducing the risk of overfitting.
 - **alpha**: Alpha was initially set to 0.01, but due to persistent overfitting, it was increased to 0.1, which successfully reduced the variance to 4.7%
+
+
 
 ## 3.2 Abalone
 
@@ -158,6 +167,8 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 - **Learning Rate**: Increasing learning rate helps accelerate convergence. However, when it increased to 0.002, the model experienced premature fluctuations, indicating overfitting. Setting the learning rate to 0.0015 proved to be the most effective.
 - **Batch Size**: A batch size of 80 can provide a stable estimate of the gradient and avoid overfitting.
 - **Max Iterations**: After adjusting the epoch several times, we settled on 500 epochs which can not only effectively reduce the model's MSE but also maintain stability without significant fluctuations. 
+
+
 
 
 # 4. Assessment
