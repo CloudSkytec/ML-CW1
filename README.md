@@ -151,13 +151,13 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 - **epsilon**: By increasing epsilon value, we increased tolerance for error, making the model more robust and reducing the risk of overfitting to small errors.
 
 ### 3.2.4 Multilayer perceptron neural network
-**parameters**:  **hidden_layer_sizes**=(64, 32, 16, 8), **epoch**=500, **learning_rate**=0.0015,  **batch_size**=80
+**parameters**:  **hidden_layer_sizes**=(64, 32, 16, 8), **max_iter**=500, **learning_rate**=0.0015,  **batch_size**=80
 
 - **Hidden Layer Size**: Starting with 64 neurons captures broad features, and decreasing the number in deeper layers helps refine them to balance model capacity
   and reducing the risk of overfitting.
 - **Learning Rate**: Increasing learning rate helps accelerate convergence. However, when it increased to 0.002, the model experienced premature fluctuations, indicating overfitting. Setting the learning rate to 0.0015 proved to be the most effective.
 - **Batch Size**: A batch size of 80 can provide a stable estimate of the gradient and avoid overfitting.
-- **Epochs**: After adjusting the epoch several times, we settled on 500 epochs which can not only effectively reduce the model's MSE but also maintain stability without significant fluctuations. 
+- **Max Iterations**: After adjusting the epoch several times, we settled on 500 epochs which can not only effectively reduce the model's MSE but also maintain stability without significant fluctuations. 
 
 
 # 4. Assessment
