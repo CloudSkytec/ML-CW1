@@ -167,9 +167,13 @@ The count plot shows that the target variable `quality` is imbalanced, so SMOTE 
 <img src="README.assets/Model Performance Comparison - Classification.png" alt="image-20241105222200906" style="zoom:100%;" />
 
 
+
+
 ## Abalone
 
-<img src="README.assets/Model Performance Comparison - Regression.png" alt="image-20241105222200906" style="zoom:100%;" />
+![image-20241107125130051](D:\PythonProject\CWlab\README.assets\image-20241107125130051.png)
+
+
 
 
 # 5. Conclusion
